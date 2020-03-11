@@ -18,7 +18,8 @@ class FirestoreService {
   }
 
   async getData(collection: string, id: string): Promise<any> {
-    await this.firestore.collection(collection).doc(id).get();
+    const doc = await this.firestore.collection(collection).doc(id).get();
+    return doc.data();
   }
 }
 
