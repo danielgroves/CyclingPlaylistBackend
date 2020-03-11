@@ -13,10 +13,8 @@ export default async function cadanceGenerator(_req: Request, res: Response): Pr
   var previousCadence = firebaseCadence.previousCadence;
   var nextCadence = firebaseCadence.nextCadence;
 
-  
-  firebaseCadence.previousCadence = nextCadence;
   firebaseCadence.nextCadence = previousCadence+2;
- 
+  firebaseCadence.previousCadence = nextCadence; 
 
   await firestoreService.addData('user_metadata', 'cadence', firebaseCadence);
   
