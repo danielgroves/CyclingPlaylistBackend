@@ -15,4 +15,4 @@ admin.initializeApp({
 });
 
 exports.cadanceGenerator = functions.runWith(options).region(region).https.onRequest(require('./functions/cadanceGenerator').default);
-exports.songGenerator = functions.runWith(options).region(region).database.ref('/user_metadata/cadence').onUpdate(require('./functions/songGenerator').default);
+exports.songGenerator = functions.runWith(options).region(region).firestore.document('user_metadata/cadence').onWrite(require('./functions/songGenerator').default);
