@@ -28,6 +28,7 @@ class FirestoreService {
 
     docs.forEach(async (doc) => {
       const data = await doc.data();
+      data.id = doc.id;
       result.push(data);
     });
 

@@ -8,8 +8,8 @@ export default async function songGenerator(_req: Request, res: Response): Promi
 
   logger.debug('Got tracks: ' , tracks);
 
-  await firestoreService.addData('user_playlist', 'nextSong', {
-    id: tracks[0]
+  await firestoreService.addData('user_playlist', 'playlist', {
+    id: tracks[0].id
   })
 
   res.send(200);
