@@ -1,4 +1,5 @@
 import firestoreService from '../lib/firestore/firestoreService';
+import { Request, Response } from 'express';
 
 export default async function songGenerator(_req: Request, res: Response): Promise<void> {
   const cadence = await firestoreService.getData('user_metadata', 'cadence');
