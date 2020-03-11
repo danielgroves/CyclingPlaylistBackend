@@ -1,5 +1,5 @@
 import { Firestore } from '@google-cloud/firestore';
-import logger from '../helpers/logger';
+import logger from '../../helpers/logging.helper';
 
 class FirestoreService {
   private firestore: Firestore;
