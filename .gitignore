@@ -112,3 +112,4 @@ data/
 
 # Dev only configuration overrides
 config/development.json
+src/lib/firestore/service.ts

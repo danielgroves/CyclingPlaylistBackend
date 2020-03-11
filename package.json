@@ -33,6 +33,7 @@
   },
   "types": "lib/",
   "dependencies": {
+    "@google-cloud/firestore": "^3.6.0",
     "@google-cloud/logging": "^6.0.0",
     "@google-cloud/logging-winston": "^3.0.1",
     "@tsed/common": "^5.35.2",
