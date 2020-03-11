@@ -12,7 +12,7 @@ export default async function songGenerator(_snap: any, _context: any): Promise<
   logger.debug('prev', prev);
   logger.debug('tracks', tracks);
 
-  if (!tracks) return;
+  if (tracks.length === 0) return;
 
   let selectTrack = 0;
   if (tracks.length > 1) {
