@@ -8,7 +8,7 @@ export default async function cadanceGenerator(_req: Request, res: Response): Pr
 
   var min : number = firebaseCadence.min;
   var max : number = firebaseCadence.max;
-  var denominator : number = firebaseCadence.range;
+  var denominator : number = Math.floor(Math.random() * firebaseCadence.maxRange);
 
   firebaseCadence.cadence = firebaseCadence.cadence >= max ? min : firebaseCadence.cadence + denominator;
 
