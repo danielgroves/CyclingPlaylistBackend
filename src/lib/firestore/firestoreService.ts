@@ -21,6 +21,18 @@ class FirestoreService {
     const doc = await this.firestore.collection(collection).doc(id).get();
     return doc.data();
   }
+
+  async queryData(collection: string, query: Array<any>): Promise<any[]>  {
+    const docs = await this.firestore.collection(collection).where(query[0], query[1], query[2]).get();
+    const result: any[] = [];
+
+    docs.forEach(async (doc) => {
+      const data = await doc.data();
+      result.push(data);
+    });
+
+    return result;
+  }
 }
 
 export default new FirestoreService();
