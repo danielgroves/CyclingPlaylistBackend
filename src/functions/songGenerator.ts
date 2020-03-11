@@ -6,7 +6,7 @@ const variation = 5;
 export default async function songGenerator(_snap: any, _context: any): Promise<void> {
   const cadence = await firestoreService.getData('user_metadata', 'cadence');
   const prev =  await firestoreService.getData('user_playlist', 'playlist');
-  const tracks = await firestoreService.queryData('tracks', [['tempo', '>=', cadence.nextCadence - variation], ['tempo', '<=', cadence.nextCadence + variation]]);
+  const tracks = await firestoreService.queryData('tracks', [['tempo', '>=', cadence.cadence - variation], ['tempo', '<=', cadence.cadence + variation]]);
 
   logger.debug('cadence', cadence);
   logger.debug('prev', prev);
@@ -36,7 +36,7 @@ export default async function songGenerator(_snap: any, _context: any): Promise<
   const playlistOb = {
     id: tracks[selectTrack].id,
     prevTrackId: prev.id,
-    cadence: cadence.nextCadence
+    cadence: cadence.cadence
   };
   logger.debug('update playlist', playlistOb)
   await firestoreService.addData('user_playlist', 'playlist', playlistOb);
