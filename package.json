@@ -1,0 +1,87 @@
+{
+  "name": "angliru-api-gateway",
+  "description": "Angliru API Gateway",
+  "version": "0.0.0",
+  "homepage": "",
+  "main": "lib/index.js",
+  "keywords": [
+    "expressjs",
+    "typescript"
+  ],
+  "author": {
+    "name": "Daniel Groves",
+    "email": "dan.groves@playsportsnetwork.com"
+  },
+  "contributors": [],
+  "bugs": {},
+  "directories": {
+    "lib": "src",
+    "test": "test/",
+    "config": "config/"
+  },
+  "engines": {
+    "node": "8",
+    "npm": ">= 3.0.0"
+  },
+  "scripts": {
+    "test": "npm run compile && NODE_ENV=test npm run mocha",
+    "mocha": "ts-mocha \"test/**/*.test.ts\" --recursive --exit",
+    "start": "npm run compile && node lib/server.js",
+    "dev": "ts-node-dev --no-notify src/",
+    "compile": "rm -Rf ./lib && tsc",
+    "lint": "eslint --ext .js,.ts,.json src/"
+  },
+  "types": "lib/",
+  "dependencies": {
+    "@google-cloud/logging": "^6.0.0",
+    "@google-cloud/logging-winston": "^3.0.1",
+    "@tsed/common": "^5.35.2",
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.0.0",
+    "firebase-admin": "^8.8.0",
+    "firebase-functions": "^3.3.0",
+    "method-override": "^3.0.0",
+    "morgan": "^1.9.1",
+    "rate-limit-redis": "^1.7.0",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/body-parser": "^1.17.1",
+    "@types/chai": "^4.2.6",
+    "@types/chai-http": "^4.2.0",
+    "@types/compression": "^1.0.1",
+    "@types/express": "^4.17.2",
+    "@types/express-rate-limit": "^3.3.3",
+    "@types/method-override": "0.0.31",
+    "@types/mocha": "^5.2.7",
+    "@types/morgan": "^1.7.37",
+    "@types/node": "^13.7.0",
+    "@types/rate-limit-redis": "^1.6.0",
+    "@types/sinon": "^7.5.1",
+    "@types/sinon-chai": "^3.2.3",
+    "@types/uuid": "^3.4.6",
+    "@typescript-eslint/eslint-plugin": "^2.9.0",
+    "@typescript-eslint/parser": "^2.9.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "eslint": "^6.7.1",
+    "firebase-functions-test": "^0.1.6",
+    "firebase-tools": "^7.9.0",
+    "mocha": "^6.2.2",
+    "mock-express-request": "^0.2.2",
+    "mock-express-response": "^0.2.2",
+    "nodemon": "^1.19.4",
+    "shx": "^0.3.2",
+    "sinon": "^7.5.0",
+    "sinon-chai": "^3.3.0",
+    "ts-mocha": "^6.0.0",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.2",
+    "uuid-validate": "0.0.3"
+  }
+}
