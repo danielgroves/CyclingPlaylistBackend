@@ -1,4 +1,5 @@
 import { Firestore } from '@google-cloud/firestore';
+import logger from '../helpers/logger';
 
 class FirestoreService {
   private firestore: Firestore;
@@ -23,6 +24,11 @@ class FirestoreService {
   }
 
   async queryData(collection: string, query: Array<any>): Promise<any[]>  {
+    logger.debug('query', {
+      collection,
+      query,
+    });
+
     const docs = await this.firestore.collection(collection).where(query[0], query[1], query[2]).get();
     const result: any[] = [];
 
@@ -31,6 +37,8 @@ class FirestoreService {
       data.id = doc.id;
       result.push(data);
     });
+
+    logger.debug('query_result', result);
 
     return result;
   }
